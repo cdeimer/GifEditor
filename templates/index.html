@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Home Page</title>
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Gif Editor</h1>
+
+        <!-- File Upload Component -->
+        <input type="file" id="fileInput" accept="image/*">
+
+        <!-- Display Uploaded Image -->
+        <img id="imageDisplay" src="" alt="Uploaded Image">
+
+        <!-- Button Options -->
+        <div class="button-container">
+            <button class="button">Option 1</button>
+            <button class="button">Option 2</button>
+            <button class="button">Option 3</button>
+            <!-- Add more buttons as needed -->
+        </div>
+    </div>
+
+    <!-- Include your JavaScript libraries for image editing functionality here -->
+    <!-- For example: -->
+    <!-- <script src="image-editor.js"></script> -->
+
+</body>
+</html>
