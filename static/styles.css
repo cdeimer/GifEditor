@@ -1,11 +1,10 @@
 body {
     margin: 0;
-    padding: 0;
+    padding: 60px;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     background: linear-gradient(135deg, #1bd4a4, #159d82);
     color: white;
     font-family: 'Arial', sans-serif;
@@ -13,8 +12,6 @@ body {
 
 .container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
@@ -23,9 +20,48 @@ body {
     margin-bottom: 20px;
 }
 
+.upload-container,
+.image-container {
+    aspect-ratio: 1 / 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#fileInput {
+    display: none;
+}
+
+.drag-drop-area {
+    aspect-ratio: 1 / 1;
+    border: 2px dashed #fff;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333; /* Dark grey color */
+    text-align: center; /* Center text horizontally */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add a bit of depth with text shadow */
+    font-size: 18px;
+    letter-spacing: 2px;
+    padding: 15%; /* Add padding to create space within the box */
+}
+
+.drag-drop-area:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
 #imageDisplay {
     max-width: 100%;
-    height: auto;
+    max-height: 100%;
     border-radius: 10px;
     margin-top: 20px;
 }
