@@ -22,7 +22,7 @@ body {
 
 .upload-container,
 .image-container {
-    aspect-ratio: 1 / 1;
+    /* Remove 'aspect-ratio' property to allow the image to fill the container */
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -47,12 +47,13 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: #333; /* Dark grey color */
-    text-align: center; /* Center text horizontally */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add a bit of depth with text shadow */
+    color: #333;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 18px;
     letter-spacing: 2px;
-    padding: 15%; /* Add padding to create space within the box */
+    /* Adjust padding to create space within the box */
+    padding: 15%;
 }
 
 .drag-drop-area:hover {
@@ -62,8 +63,9 @@ body {
 #imageDisplay {
     max-width: 100%;
     max-height: 100%;
+    /* Adjust margin to control spacing between image and container */
+    margin: 10px;
     border-radius: 10px;
-    margin-top: 20px;
 }
 
 .button-container {

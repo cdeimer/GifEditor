@@ -2,28 +2,32 @@
 <head>
     <title>Home Page</title>
     <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1.9.9" integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <h1>Gif Editor</h1>
     <div class="container">
-        <div class="upload-container">
+        <div class="upload-container" id="uploadContainer">
             <!-- Square File Upload Component -->
-            <label for="fileInput" class="drag-drop-area">
-                Drag & Drop or Click to Upload
-            </label>
-            <input type="file" id="fileInput" accept="image/*">
+            <form id="uploadForm" hx-post="/upload" enctype="multipart/form-data" hx-trigger="change" hx-swap="outerHTML" hx-target="#uploadContainer">
+                <label for="fileInput" class="drag-drop-area">
+                    Drag & Drop or Click to Upload
+                </label>
+                <input type="file" id="fileInput" name="file" accept="image/*">
+                <!-- You can add other form elements or buttons if needed -->
+            </form>
         </div>
 
         <div class="image-container">
             <!-- Display Uploaded Image -->
-            <img id="imageDisplay" src="" alt="Uploaded Image">
+            <img id="imageDisplay" src="" alt="Edited Image">
         </div>
     </div>
 
     <!-- Button Options -->
     <div class="button-container">
-        <button class="button">Option 1</button>
+        <button class="button" hx-post="/edit" hx-trigger="click" hx-target="#imageDisplay">Option 1</button>
         <button class="button">Option 2</button>
         <button class="button">Option 3</button>
         <!-- Add more buttons as needed -->
@@ -34,23 +38,4 @@
     <!-- <script src="image-editor.js"></script> -->
 
 </body>
-<script>
-    document.getElementById('fileInput').addEventListener('change', handleFileSelect);
-
-    function handleFileSelect(event) {
-        const fileInput = event.target;
-        const imageDisplay = document.getElementById('imageDisplay');
-
-        const file = fileInput.files[0];
-        if (file) {
-            const reader = new FileReader();
-
-            reader.onload = function (e) {
-                imageDisplay.src = e.target.result;
-            };
-
-            reader.readAsDataURL(file);
-        }
-    }
-</script>
 </html>
